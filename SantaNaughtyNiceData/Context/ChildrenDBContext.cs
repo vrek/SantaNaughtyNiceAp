@@ -10,7 +10,11 @@ namespace SantaNaughtyNiceData
 {
     public class ChildrenDBContext : DbContext
     {
-        public ChildrenDBContext(DbContextOptions options ) : base(options){ }
+        //public ChildrenDBContext(DbContextOptions options ) : base(options){ }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-LG72A81;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        }
         public DbSet<Children> children {  get; set; }
         public DbSet<ChildsHistory> childsHistory { get; set; }
         public DbSet<Activities> activities { get; set; }

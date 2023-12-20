@@ -1,3 +1,6 @@
+using SantaNaughtyNiceData.DataAccess;
+using System.Drawing.Text;
+
 namespace SantaNaughtyNiceUI
 {
     public partial class Form1 : Form
@@ -5,6 +8,12 @@ namespace SantaNaughtyNiceUI
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void btnLookUpChild_Click(object sender, EventArgs e)
+        {
+            string _firstName = FirstNameEntry.Text;
+            string _lastName = LastNameEntry.Text;
         }
     }
 }

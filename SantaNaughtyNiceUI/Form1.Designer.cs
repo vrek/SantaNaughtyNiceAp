@@ -28,12 +28,165 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            label1 = new Label();
+            FirstNameEntry = new TextBox();
+            LastNameEntry = new TextBox();
+            label2 = new Label();
+            label3 = new Label();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            label4 = new Label();
+            btnLookUpChild = new Button();
+            btnAddChild = new Button();
+            btnRecordActivity = new Button();
+            btnChristmasList = new Button();
+            SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(75, 41);
+            label1.Name = "label1";
+            label1.Size = new Size(102, 25);
+            label1.TabIndex = 0;
+            label1.Text = "First Name";
+            // 
+            // FirstNameEntry
+            // 
+            FirstNameEntry.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FirstNameEntry.Location = new Point(196, 33);
+            FirstNameEntry.Name = "FirstNameEntry";
+            FirstNameEntry.Size = new Size(185, 33);
+            FirstNameEntry.TabIndex = 1;
+            // 
+            // LastNameEntry
+            // 
+            LastNameEntry.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LastNameEntry.Location = new Point(196, 82);
+            LastNameEntry.Name = "LastNameEntry";
+            LastNameEntry.Size = new Size(185, 33);
+            LastNameEntry.TabIndex = 3;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(77, 90);
+            label2.Name = "label2";
+            label2.Size = new Size(100, 25);
+            label2.TabIndex = 2;
+            label2.Text = "Last Name";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(65, 134);
+            label3.Name = "label3";
+            label3.Size = new Size(112, 25);
+            label3.TabIndex = 4;
+            label3.Text = "YearlyANNS";
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(196, 134);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(185, 33);
+            textBox1.TabIndex = 5;
+            // 
+            // textBox2
+            // 
+            textBox2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox2.Location = new Point(196, 191);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(185, 33);
+            textBox2.TabIndex = 7;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(31, 194);
+            label4.Name = "label4";
+            label4.Size = new Size(146, 25);
+            label4.TabIndex = 6;
+            label4.Text = "Historical ANNS";
+            // 
+            // btnLookUpChild
+            // 
+            btnLookUpChild.Location = new Point(105, 238);
+            btnLookUpChild.Name = "btnLookUpChild";
+            btnLookUpChild.Size = new Size(196, 68);
+            btnLookUpChild.TabIndex = 8;
+            btnLookUpChild.Text = "Look Up Child";
+            btnLookUpChild.UseVisualStyleBackColor = true;
+            btnLookUpChild.Click += btnLookUpChild_Click;
+            // 
+            // btnAddChild
+            // 
+            btnAddChild.Location = new Point(529, 33);
+            btnAddChild.Name = "btnAddChild";
+            btnAddChild.Size = new Size(196, 68);
+            btnAddChild.TabIndex = 9;
+            btnAddChild.Text = "Add Child";
+            btnAddChild.UseVisualStyleBackColor = true;
+            // 
+            // btnRecordActivity
+            // 
+            btnRecordActivity.Location = new Point(529, 134);
+            btnRecordActivity.Name = "btnRecordActivity";
+            btnRecordActivity.Size = new Size(196, 68);
+            btnRecordActivity.TabIndex = 10;
+            btnRecordActivity.Text = "Record Activity";
+            btnRecordActivity.UseVisualStyleBackColor = true;
+            // 
+            // btnChristmasList
+            // 
+            btnChristmasList.Location = new Point(529, 238);
+            btnChristmasList.Name = "btnChristmasList";
+            btnChristmasList.Size = new Size(196, 68);
+            btnChristmasList.TabIndex = 11;
+            btnChristmasList.Text = "Christmas List Gerneration";
+            btnChristmasList.UseVisualStyleBackColor = true;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 350);
+            Controls.Add(btnChristmasList);
+            Controls.Add(btnRecordActivity);
+            Controls.Add(btnAddChild);
+            Controls.Add(btnLookUpChild);
+            Controls.Add(textBox2);
+            Controls.Add(label4);
+            Controls.Add(textBox1);
+            Controls.Add(label3);
+            Controls.Add(LastNameEntry);
+            Controls.Add(label2);
+            Controls.Add(FirstNameEntry);
+            Controls.Add(label1);
+            Name = "Form1";
+            Text = "Form1";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label1;
+        private TextBox FirstNameEntry;
+        private TextBox LastNameEntry;
+        private Label label2;
+        private Label label3;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private Label label4;
+        private Button btnLookUpChild;
+        private Button btnAddChild;
+        private Button btnRecordActivity;
+        private Button btnChristmasList;
     }
 }

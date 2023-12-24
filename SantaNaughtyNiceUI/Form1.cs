@@ -3,9 +3,9 @@ using System.Drawing.Text;
 
 namespace SantaNaughtyNiceUI
 {
-    public partial class Form1 : Form
+    public partial class frmMain : Form
     {
-        public Form1()
+        public frmMain()
         {
             InitializeComponent();
             LoadInitialData.LoadInitialChildren();
@@ -15,6 +15,16 @@ namespace SantaNaughtyNiceUI
         {
             string _firstName = FirstNameEntry.Text;
             string _lastName = LastNameEntry.Text;
+            int yearlyANNS = ChildLookUp.getYearlyANNS(_firstName, _lastName);
+            int historicalANNS = ChildLookUp.getHistoricalANNS(_firstName, _lastName);
+            lblYearlyANNS.Text = yearlyANNS.ToString();
+            lblHistoricalANNS.Text = historicalANNS.ToString();
+        }
+
+        private void btnRecordActivity_Click(object sender, EventArgs e)
+        {
+            frmRecordActivity frmRecordActivity = new frmRecordActivity();
+            frmRecordActivity.Show();
         }
     }
 }

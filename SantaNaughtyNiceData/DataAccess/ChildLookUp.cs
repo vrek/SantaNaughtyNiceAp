@@ -8,24 +8,40 @@ using System.Threading.Tasks;
 
 namespace SantaNaughtyNiceData.DataAccess
 {
-    public class ChildLookUp
+    public static class ChildLookUp
     {
-        public ChildrenDBContext childrenDBContext = new();
-        public string _firstName = null;
-        public string _lastName = null;
+        
+        public static int getYearlyANNS(string firstName, string lastName)
+        {
+            using (var db = new ChildrenDBContext())
+            {
+                
+                foreach (Children child in db.children)
+                {
+                    if (child.FirstName == firstName && child.LastName == lastName)
+                    {
+                        return child.Yearly_ANNS;
 
-        ChildLookUp(string firstName, string lastName) {
-            this._firstName = firstName;
-            this._lastName = lastName;
+                    }
+                }                
+            }
+            return 0;
         }
-        //public int getYearlyANNS(string firstName, string lastName)
-        //{
-        //    IQueryable children = childrenDBContext.children.AsQueryable();
-        //    foreach (var child in children)
-        //    {
-        //        //if child.firstName.Text =
-        //    }
-        //    return 0;
-        //}
+        public static int getHistoricalANNS(string firstName, string lastName)
+        {
+            using (var db = new ChildrenDBContext())
+            {
+
+                foreach (Children child in db.children)
+                {
+                    if (child.FirstName == firstName && child.LastName == lastName)
+                    {
+                        return child.Historical_ANNS;
+
+                    }
+                }
+            }
+            return 0;
+        }
     }
 }

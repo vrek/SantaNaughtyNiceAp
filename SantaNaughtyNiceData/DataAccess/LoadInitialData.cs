@@ -9,8 +9,6 @@ namespace SantaNaughtyNiceData.DataAccess
 {
     public class LoadInitialData
     {
-        //public ChildrenDBContext childrenDBContext = new();
-
         public static void LoadInitialChildren()
         {
             using (var db = new ChildrenDBContext())

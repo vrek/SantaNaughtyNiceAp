@@ -1,6 +1,6 @@
 ﻿namespace SantaNaughtyNiceUI
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         ///  Required designer variable.
@@ -33,8 +33,8 @@
             LastNameEntry = new TextBox();
             label2 = new Label();
             label3 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            lblYearlyANNS = new TextBox();
+            lblHistoricalANNS = new TextBox();
             label4 = new Label();
             btnLookUpChild = new Button();
             btnAddChild = new Button();
@@ -88,21 +88,21 @@
             label3.TabIndex = 4;
             label3.Text = "YearlyANNS";
             // 
-            // textBox1
+            // lblYearlyANNS
             // 
-            textBox1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(196, 134);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(185, 33);
-            textBox1.TabIndex = 5;
+            lblYearlyANNS.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblYearlyANNS.Location = new Point(196, 134);
+            lblYearlyANNS.Name = "lblYearlyANNS";
+            lblYearlyANNS.Size = new Size(185, 33);
+            lblYearlyANNS.TabIndex = 5;
             // 
-            // textBox2
+            // lblHistoricalANNS
             // 
-            textBox2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(196, 191);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(185, 33);
-            textBox2.TabIndex = 7;
+            lblHistoricalANNS.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblHistoricalANNS.Location = new Point(196, 191);
+            lblHistoricalANNS.Name = "lblHistoricalANNS";
+            lblHistoricalANNS.Size = new Size(185, 33);
+            lblHistoricalANNS.TabIndex = 7;
             // 
             // label4
             // 
@@ -141,6 +141,7 @@
             btnRecordActivity.TabIndex = 10;
             btnRecordActivity.Text = "Record Activity";
             btnRecordActivity.UseVisualStyleBackColor = true;
+            btnRecordActivity.Click += btnRecordActivity_Click;
             // 
             // btnChristmasList
             // 
@@ -151,7 +152,7 @@
             btnChristmasList.Text = "Christmas List Gerneration";
             btnChristmasList.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -160,15 +161,15 @@
             Controls.Add(btnRecordActivity);
             Controls.Add(btnAddChild);
             Controls.Add(btnLookUpChild);
-            Controls.Add(textBox2);
+            Controls.Add(lblHistoricalANNS);
             Controls.Add(label4);
-            Controls.Add(textBox1);
+            Controls.Add(lblYearlyANNS);
             Controls.Add(label3);
             Controls.Add(LastNameEntry);
             Controls.Add(label2);
             Controls.Add(FirstNameEntry);
             Controls.Add(label1);
-            Name = "Form1";
+            Name = "frmMain";
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();
@@ -181,8 +182,8 @@
         private TextBox LastNameEntry;
         private Label label2;
         private Label label3;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox lblYearlyANNS;
+        private TextBox lblHistoricalANNS;
         private Label label4;
         private Button btnLookUpChild;
         private Button btnAddChild;

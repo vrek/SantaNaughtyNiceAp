@@ -8,6 +8,7 @@ namespace SantaNaughtyNiceUI
         public Form1()
         {
             InitializeComponent();
+            LoadInitialData.LoadInitialChildren();
         }
 
         private void btnLookUpChild_Click(object sender, EventArgs e)

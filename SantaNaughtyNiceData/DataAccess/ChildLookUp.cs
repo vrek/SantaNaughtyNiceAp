@@ -18,14 +18,14 @@ namespace SantaNaughtyNiceData.DataAccess
             this._firstName = firstName;
             this._lastName = lastName;
         }
-        public int getYearlyANNS(string firstName, string lastName)
-        {
-            IQueryable children = childrenDBContext.children.AsQueryable();
-            foreach (var child in children)
-            {
-                //if child.firstName.Text =
-            }
-            return 0;
-        }
+        //public int getYearlyANNS(string firstName, string lastName)
+        //{
+        //    IQueryable children = childrenDBContext.children.AsQueryable();
+        //    foreach (var child in children)
+        //    {
+        //        //if child.firstName.Text =
+        //    }
+        //    return 0;
+        //}
     }
 }

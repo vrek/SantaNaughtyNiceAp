@@ -14,7 +14,7 @@ namespace SantaNaughtyNiceData
             List<Children> children = new List<Children>();
             Children child = new Children()
             {
-                Id = 1,
+                
                 FirstName = "Tom",
                 LastName = "Smith",
                 House_Number = 32,
@@ -29,7 +29,7 @@ namespace SantaNaughtyNiceData
             children.Add(child);
             child = new Children()
             {
-                Id = 2,
+                
                 FirstName = "Sarah",
                 LastName = "Jones",
                 House_Number = 15,
@@ -45,7 +45,7 @@ namespace SantaNaughtyNiceData
             children.Add(child);
             child = new Children()
             {
-                Id = 3,
+                
                 FirstName = "Robert",
                 LastName = "Jamerson",
                 House_Number = 84,
@@ -65,33 +65,61 @@ namespace SantaNaughtyNiceData
             List<Activities> activities = new List<Activities>();
             Activities activity = new Activities()
             {
-                Id = 1,
+                
                 Description = "Clean Room",
                 Value = 5
             };
             activities.Add(activity);
             activity = new Activities()
             {
-                Id = 2,
+                
                 Description = "Cry in public",
                 Value = -20
             };
             activities.Add(activity);
             activity = new Activities()
             {
-                Id = 3,
+                
                 Description = "Cook Dinner",
                 Value = 10
             };
             activities.Add(activity);
             activity = new Activities()
             {
-                Id = 4,
+                
                 Description = "Genocide",
                 Value = -500
             };
             activities.Add(activity);
             return activities;
+        }
+        public static List<ChildsHistory> GetChildHistory()
+        {
+            List<ChildsHistory> childHistories = new List<ChildsHistory>();
+            ChildsHistory childHistory = new ChildsHistory()
+            {
+
+                ChildID = 1,
+                ActivityID = 1,
+                DeltaANNS = 5,
+            };
+            childHistories.Add(childHistory);
+            childHistory = new ChildsHistory()
+            {
+                
+                ChildID = 1,
+                ActivityID = 3,
+                DeltaANNS = 10,
+            };
+            childHistory = new ChildsHistory()
+            {
+                
+                ChildID = 2,
+                ActivityID = 4,
+                DeltaANNS = -500,
+            };
+            childHistories.Add(childHistory); 
+            return childHistories;
         }
     }
 }

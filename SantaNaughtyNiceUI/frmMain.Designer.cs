@@ -152,6 +152,7 @@
             btnChristmasList.TabIndex = 11;
             btnChristmasList.Text = "Christmas List Gerneration";
             btnChristmasList.UseVisualStyleBackColor = true;
+            btnChristmasList.Click += btnChristmasList_Click;
             // 
             // frmMain
             // 

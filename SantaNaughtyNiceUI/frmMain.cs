@@ -1,4 +1,6 @@
+using SantaNaughtyNiceData;
 using SantaNaughtyNiceData.DataAccess;
+using SantaNaughtyNiceData.Models;
 
 namespace SantaNaughtyNiceUI
 {
@@ -32,6 +34,28 @@ namespace SantaNaughtyNiceUI
         {
             frmAddChild frmAddChild = new frmAddChild();
             frmAddChild.Show();
+        }
+
+        private void btnChristmasList_Click(object sender, EventArgs e)
+        {
+            using(var db = new ChildrenDBContext())
+            {
+                
+                List<Children> goodChildren = GenerateGoodChildren.GenerateGoodChildrenList(db);
+                GenerateGoodChildren.OutputChildren(goodChildren, db);
+                ClearAllYearlyANNS(db);
+            }
+            
+        }
+
+        private void ClearAllYearlyANNS(ChildrenDBContext db)
+        {
+            MessageBox.Show("This will clear all Yearly ANNS values");
+            foreach(var child in db.children)
+            {
+                child.Yearly_ANNS = 0;
+            }
+            db.SaveChanges();
         }
     }
 }

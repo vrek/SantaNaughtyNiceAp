@@ -1,9 +1,4 @@
 ﻿using SantaNaughtyNiceData.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SantaNaughtyNiceData
 {
@@ -14,7 +9,7 @@ namespace SantaNaughtyNiceData
             List<Children> children = new List<Children>();
             Children child = new Children()
             {
-                
+
                 FirstName = "Tom",
                 LastName = "Smith",
                 House_Number = 32,
@@ -29,7 +24,7 @@ namespace SantaNaughtyNiceData
             children.Add(child);
             child = new Children()
             {
-                
+
                 FirstName = "Sarah",
                 LastName = "Jones",
                 House_Number = 15,
@@ -45,7 +40,7 @@ namespace SantaNaughtyNiceData
             children.Add(child);
             child = new Children()
             {
-                
+
                 FirstName = "Robert",
                 LastName = "Jamerson",
                 House_Number = 84,
@@ -58,35 +53,35 @@ namespace SantaNaughtyNiceData
                 ChildHistory = new List<ChildsHistory>()
             };
             children.Add(child);
-            return children;            
+            return children;
         }
         public static List<Activities> GetActivities()
         {
             List<Activities> activities = new List<Activities>();
             Activities activity = new Activities()
             {
-                
+
                 Description = "Clean Room",
                 Value = 5
             };
             activities.Add(activity);
             activity = new Activities()
             {
-                
+
                 Description = "Cry in public",
                 Value = -20
             };
             activities.Add(activity);
             activity = new Activities()
             {
-                
+
                 Description = "Cook Dinner",
                 Value = 10
             };
             activities.Add(activity);
             activity = new Activities()
             {
-                
+
                 Description = "Genocide",
                 Value = -500
             };
@@ -106,19 +101,19 @@ namespace SantaNaughtyNiceData
             childHistories.Add(childHistory);
             childHistory = new ChildsHistory()
             {
-                
+
                 ChildID = 1,
                 ActivityID = 3,
                 DeltaANNS = 10,
             };
             childHistory = new ChildsHistory()
             {
-                
+
                 ChildID = 2,
                 ActivityID = 4,
                 DeltaANNS = -500,
             };
-            childHistories.Add(childHistory); 
+            childHistories.Add(childHistory);
             return childHistories;
         }
     }

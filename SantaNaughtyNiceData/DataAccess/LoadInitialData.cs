@@ -41,7 +41,7 @@ namespace SantaNaughtyNiceData.DataAccess
                 }
                 catch (Exception ex)
                 {
-                    
+
                     throw new Exception();
                 }
                 return value_changes;

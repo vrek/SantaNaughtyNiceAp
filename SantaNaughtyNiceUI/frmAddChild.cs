@@ -1,14 +1,5 @@
 ﻿using SantaNaughtyNiceData;
 using SantaNaughtyNiceData.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SantaNaughtyNiceUI
 {
@@ -28,7 +19,7 @@ namespace SantaNaughtyNiceUI
             child.FirstName = lblFirstName.Text.Trim();
             child.LastName = lblLastName.Text.Trim();
             bool houseNumSuccess = int.TryParse(lblHouseNum.Text.Trim(), out _houseNumber);
-            if (houseNumSuccess ) 
+            if (houseNumSuccess)
             {
                 child.House_Number = _houseNumber;
             }
@@ -41,7 +32,7 @@ namespace SantaNaughtyNiceUI
             child.PostalCode = lblZipCode.Text.Trim();
             child.CountryName = lblCountry.Text.Trim();
             bool yearlyANNSSuccess = int.TryParse(lblYearlyANNS.Text.Trim(), out _yearlyANNS);
-            if (yearlyANNSSuccess )
+            if (yearlyANNSSuccess)
             {
                 child.Yearly_ANNS = _yearlyANNS;
             }
@@ -49,7 +40,7 @@ namespace SantaNaughtyNiceUI
             {
                 MessageBox.Show("The Yearly ANNS must be an integer");
             }
-            bool historicalANNSSuccess = int.TryParse(lblHistoryANNS.Text.Trim() , out _historicalANNS);
+            bool historicalANNSSuccess = int.TryParse(lblHistoryANNS.Text.Trim(), out _historicalANNS);
             if (historicalANNSSuccess)
             {
                 child.Historical_ANNS = _historicalANNS;
@@ -58,7 +49,7 @@ namespace SantaNaughtyNiceUI
             {
                 MessageBox.Show("The Historical ANNS must be an integer");
             }
-            using(var db = new ChildrenDBContext())
+            using (var db = new ChildrenDBContext())
             {
                 db.children.Add(child);
                 try

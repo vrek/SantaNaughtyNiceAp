@@ -16,9 +16,9 @@ namespace SantaNaughtyNiceUI
 {
     public partial class frmRecordActivity : Form
     {
-        List<string> childFirstNames = new List<string> { };
-        List<string> childLastNames = new List<string> { };
-        List<string> activities = new List<string> { };
+        List<string> childFirstNames = [];
+        List<string> childLastNames = new() { };
+        List<string> activities = [];
 
         public frmRecordActivity()
         {
@@ -157,7 +157,7 @@ namespace SantaNaughtyNiceUI
             int activityID = getActivityID(activity, db);
             int DeltaANNS = getDeltaANNS(activityID, db);
             DateTime dateTime = DateTime.Now;
-            ChildsHistory history = new ChildsHistory();
+            ChildsHistory history = new();
             history.ChildID = childID;
             history.ActivityID = activityID;
             history.DeltaANNS = DeltaANNS;
@@ -166,7 +166,7 @@ namespace SantaNaughtyNiceUI
         }
 
 
-        private int getDeltaANNS(int activityID, ChildrenDBContext db)
+        private static int getDeltaANNS(int activityID, ChildrenDBContext db)
         {
 
             foreach (var activityDelta in db.activities)
@@ -177,7 +177,7 @@ namespace SantaNaughtyNiceUI
             return -1;
         }
 
-        private int getActivityID(string activity, ChildrenDBContext db)
+        private static int getActivityID(string activity, ChildrenDBContext db)
         {
             foreach (var activityID in db.activities)
             {
@@ -187,7 +187,7 @@ namespace SantaNaughtyNiceUI
             return -1;
         }
 
-        private int getChildID(string firstName, string lastName, ChildrenDBContext db)
+        private static int getChildID(string firstName, string lastName, ChildrenDBContext db)
         {
             foreach (var child in db.children)
             {

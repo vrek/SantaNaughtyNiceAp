@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace SantaNaughtyNiceData.Models
 {
@@ -23,7 +18,7 @@ namespace SantaNaughtyNiceData.Models
         [MaxLength(50)]
         public string StreetName { get; set; }
         [Required]
-        [MaxLength(50)] 
+        [MaxLength(50)]
         public string CityName { get; set; }
         [Required]
         [MaxLength(100)]
@@ -32,7 +27,7 @@ namespace SantaNaughtyNiceData.Models
         [MaxLength(50)]
         public string CountryName { get; set; }
         [Required]
-        public int Yearly_ANNS {  get; set; }
+        public int Yearly_ANNS { get; set; }
         [Required]
         public int Historical_ANNS { get; set; }
         public List<ChildsHistory> ChildHistory { get; set; }

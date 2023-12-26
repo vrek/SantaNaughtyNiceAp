@@ -132,6 +132,7 @@
             btnAddChild.TabIndex = 9;
             btnAddChild.Text = "Add Child";
             btnAddChild.UseVisualStyleBackColor = true;
+            btnAddChild.Click += btnAddChild_Click;
             // 
             // btnRecordActivity
             // 

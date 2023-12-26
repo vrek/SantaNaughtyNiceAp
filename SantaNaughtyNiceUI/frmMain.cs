@@ -29,6 +29,10 @@ namespace SantaNaughtyNiceUI
             frmRecordActivity.Show();
         }
 
-
+        private void btnAddChild_Click(object sender, EventArgs e)
+        {
+            frmAddChild frmAddChild = new frmAddChild();
+            frmAddChild.Show();
+        }
     }
 }

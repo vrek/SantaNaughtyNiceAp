@@ -8,7 +8,9 @@ namespace SantaNaughtyNiceUI
         public frmMain()
         {
             InitializeComponent();
-            LoadInitialData.LoadInitialChildren();
+            int values_changed = LoadInitialData.LoadInitialChildren();
+            //MessageBox.Show($"You saved {values_changed} values");
+
         }
 
         private void btnLookUpChild_Click(object sender, EventArgs e)
@@ -26,5 +28,7 @@ namespace SantaNaughtyNiceUI
             frmRecordActivity frmRecordActivity = new frmRecordActivity();
             frmRecordActivity.Show();
         }
+
+
     }
 }

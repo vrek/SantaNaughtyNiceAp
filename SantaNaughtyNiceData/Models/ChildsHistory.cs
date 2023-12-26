@@ -17,5 +17,7 @@ namespace SantaNaughtyNiceData.Models
         public int ActivityID { get; set; }
         [Required]
         public int DeltaANNS { get; set; }
+        [Required]
+        public DateTime DateTime { get; set; }
     }
 }

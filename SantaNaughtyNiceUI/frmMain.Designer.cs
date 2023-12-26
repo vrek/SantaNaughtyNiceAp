@@ -170,7 +170,7 @@
             Controls.Add(FirstNameEntry);
             Controls.Add(label1);
             Name = "frmMain";
-            Text = "Form1";
+            Text = "Santa Naughty Nice Tracker";
             ResumeLayout(false);
             PerformLayout();
         }

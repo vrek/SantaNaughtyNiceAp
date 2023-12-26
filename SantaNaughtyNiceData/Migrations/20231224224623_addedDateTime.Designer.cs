@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SantaNaughtyNiceData;
 
@@ -11,9 +12,11 @@ using SantaNaughtyNiceData;
 namespace SantaNaughtyNiceData.Migrations
 {
     [DbContext(typeof(ChildrenDBContext))]
-    partial class ChildrenDBContextModelSnapshot : ModelSnapshot
+    [Migration("20231224224623_addedDateTime")]
+    partial class addedDateTime
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

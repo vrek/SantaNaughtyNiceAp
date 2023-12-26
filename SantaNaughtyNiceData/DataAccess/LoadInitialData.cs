@@ -1,18 +1,15 @@
 ﻿using SantaNaughtyNiceData.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace SantaNaughtyNiceData.DataAccess
 {
     public class LoadInitialData
     {
-        public static void LoadInitialChildren()
+        public static int LoadInitialChildren()
         {
             using (var db = new ChildrenDBContext())
             {
+                db.ChangeTracker.Clear();
                 if (!db.children.Any())
                 {
                     List<Children> initialChildren = StartingData.GetChildren();
@@ -37,7 +34,17 @@ namespace SantaNaughtyNiceData.DataAccess
                         db.childsHistory.Add(childHistory);
                     }
                 }
-                db.SaveChanges();
+                int value_changes = -1;
+                try
+                {
+                    value_changes = db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    
+                    throw new Exception();
+                }
+                return value_changes;
             }
         }
     }

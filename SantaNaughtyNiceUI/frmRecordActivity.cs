@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 
 namespace SantaNaughtyNiceUI
@@ -109,19 +110,44 @@ namespace SantaNaughtyNiceUI
                 string _FirstName = cmbFirstName.Text;
                 string _LastName = cmbLastName.Text;
                 string _Activity = cmbActivity.Text;
-
-                addChildHistory(_FirstName, _LastName, _Activity, db);
-                updateChild(_FirstName, _LastName, _Activity, db);
-
+                ChildsHistory newHistory = createChildHistory(_FirstName, _LastName, _Activity, db);
+                Children child = createUpdatedChild(_FirstName, _LastName, _Activity, db);
+                SendtoDB(newHistory, child, db);
             }
+            this.Close();
         }
 
-        private void updateChild(string firstName, string lastName, string activity, ChildrenDBContext db)
+        private void SendtoDB(ChildsHistory newHistory, Children child, ChildrenDBContext db)
         {
-            throw new NotImplementedException();
+            db.childsHistory.Add(newHistory);
+            db.children.Update(child);
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"The changes were not saved. The exception was {ex}");
+            }
+
         }
 
-        private void addChildHistory(string firstName, string lastName, string activity, ChildrenDBContext db)
+        private Children createUpdatedChild(string firstName, string lastName, string _Activity, ChildrenDBContext db)
+        {
+            int deltaANNS = getDeltaANNS(getActivityID(_Activity, db), db);
+            foreach (var child in db.children)
+            {
+                if (child.LastName.Equals(lastName) && child.FirstName.Equals(firstName))
+                {
+                    child.Yearly_ANNS += deltaANNS;
+                    child.Historical_ANNS += (int)(0.25 * deltaANNS);
+                    return child;
+                }
+            }
+            return new Children();
+        }
+
+        private ChildsHistory createChildHistory(string firstName, string lastName, string activity, ChildrenDBContext db)
         {
             int childID = getChildID(firstName, lastName, db);
             if (childID == -1)
@@ -130,14 +156,68 @@ namespace SantaNaughtyNiceUI
             }
             int activityID = getActivityID(activity, db);
             int DeltaANNS = getDeltaANNS(activityID, db);
+            DateTime dateTime = DateTime.Now;
             ChildsHistory history = new ChildsHistory();
             history.ChildID = childID;
             history.ActivityID = activityID;
             history.DeltaANNS = DeltaANNS;
-
-            db.childsHistory.Add(history);
-            db.SaveChanges();
+            history.DateTime = dateTime;
+            return history;
         }
+
+        //private void updateChild(string firstName, string lastName, int deltaANNS)
+        //{
+        //    using (var db = new ChildrenDBContext())
+        //    {
+        //        foreach(var child in db.children)
+        //        {
+        //            if (child.LastName.Equals(lastName) && child.FirstName.Equals(firstName))
+        //            {
+        //                child.Yearly_ANNS += deltaANNS;
+        //                child.Historical_ANNS += (int)(0.25* deltaANNS);
+        //                try
+        //                {
+        //                    db.SaveChanges();
+        //                }
+        //                catch(Exception ex)
+        //                {
+        //                    MessageBox.Show($"The changes were not saved Children Table. The exception was {ex}");
+        //                }
+        //            }                    
+        //        }
+        //    }
+        //}
+
+        //private int addChildHistory(string firstName, string lastName, string activity)
+        //{
+        //    int DeltaANNS;
+        //    using (var db = new ChildrenDBContext())
+        //    {
+        //        int childID = getChildID(firstName, lastName, db);
+        //        if (childID == -1)
+        //        {
+        //            throw new Exception("No Child Found");
+        //        }
+        //        int activityID = getActivityID(activity, db);
+        //        DeltaANNS = getDeltaANNS(activityID, db);
+        //        DateTime dateTime = DateTime.Now;
+        //        ChildsHistory history = new ChildsHistory();
+        //        history.ChildID = childID;
+        //        history.ActivityID = activityID;
+        //        history.DeltaANNS = DeltaANNS;
+        //        history.DateTime = dateTime;
+        //        db.childsHistory.Add(history);
+        //        try
+        //        {
+        //            db.SaveChanges();
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show($"The changes were not saved to Child History. The exception was {ex}");
+        //        }
+        //    }
+        //    return DeltaANNS;
+        //}
 
         private int getDeltaANNS(int activityID, ChildrenDBContext db)
         {
@@ -145,7 +225,7 @@ namespace SantaNaughtyNiceUI
             foreach (var activityDelta in db.activities)
             {
                 if (activityDelta.Id == activityID)
-                    return activityDelta.Id;
+                    return activityDelta.Value;
             }
             return -1;
         }
